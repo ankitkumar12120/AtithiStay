@@ -119,3 +119,6 @@ dist
 # Vite logs
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Vim swap files
+*.swp
