@@ -1,0 +1,63 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+  <div id="filters">
+    <a href="/listing?category=Trending" class="filter">
+      <div><i class="fa-solid fa-fire-flame-curved"></i></div>
+      <p>Trending</p>
+    </a>
+    <a href="/listing?category=Rooms" class="filter">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </a>
+    <a href="/listing?category=Iconic Cities" class="filter">
+      <div><i class="fa-solid fa-mountain-city"></i></div>
+      <p>Iconic Cities</p>
+    </a>
+    <a href="/listing?category=Mountain" class="filter">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountain</p>
+    </a>
+    <a href="/listing?category=Castle" class="filter">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castle</p>
+    </a>
+    <a href="/listing?category=Amazing Pool" class="filter">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Amazing Pool</p>
+    </a>
+    <a href="/listing?category=Camping" class="filter">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p>Camping</p>
+    </a>
+    <a href="/listing?category=Farms" class="filter">
+      <div><i class="fa-solid fa-cow"></i></div>
+      <p>Farms</p>
+    </a>
+    <a href="/listing?category=Arctic" class="filter">
+      <div><i class="fa-solid fa-snowman"></i></div>
+      <p>Arctic</p>
+    </a>
+  </div>
+
+  <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 mt-3">
+    <% for(let listing of data){ %>
+      <div class="col mb-4 d-flex align-items-stretch">
+        <div class="card listing-card" style="width: 100%;">
+          <a href="/listing/<%= listing._id %>">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image"
+              style="height: 18rem; object-fit: cover;">
+          </a>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">
+              <%= listing.title %>
+            </h5>
+            <p class="card-text">&#8377;<%= listing.price.toLocaleString("en-IN") %>/Night</p>
+            <a href="/listing/<%= listing._id %>" class="btn btn-primary mt-auto">More details</a>
+          </div>
+        </div>
+      </div>
+      <% } %>
+  </div>
+
+
+  </html>

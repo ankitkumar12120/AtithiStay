@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br />
+      <h2>Edit your details</h2>
+      <form method="POST" action="/listing/<%=listing._id%>?_method=PUT" class="needs-validation"
+        enctype="multipart/form-data">
+        <div>
+          <label for="title" class="form-label">Title</label>
+          <input name="listing[title]" type="text" value="<%=listing.title%>" class="form-control" required>
+          <div class="invalid-feedback">Enter title</div>
+
+        </div>
+        <br />
+
+
+        <div>
+          <label for="description" class="form-label">Description</label>
+          <textarea name="listing[description]" class="form-control" required><%=listing.description%></textarea>
+          <div class="invalid-feedback">Please enter description/div>
+          </div>
+          <br />
+
+          <div>
+            <label for="image" class="form-label">Upload new image</label>
+            <input name="listing[image]" class="form-control" type="file">
+          </div>
+          <br />
+
+          <div class="row">
+            <div class="col-md-4">
+              <label for="price" class="form-label">Price</label>
+              <input name="listing[price]" type="number" value="<%=listing.price%>" class="form-control" required>
+              <div class="invalid-feedback">Price should be needed</div>
+
+            </div>
+            <br />
+
+            <div class="col-md-8">
+              <label for="country" class="form-label"> Enter your country</label>
+              <input name="listing[country]" type="text" value="<%=listing.country%>" class="form-control" required>
+              <div class="invalid-feedback">Country should be needed</div>
+
+            </div>
+          </div>
+          <br />
+
+          <div>
+            <label for="location" class="form-label">Location</label>
+            <input name="listing[location]" type="text" value="<%=listing.location%>" class="form-control" required>
+            <div class="invalid-feedback">Location should be needed</div>
+          </div>
+
+          <br />
+          <div class="mb-3">
+            <label for="categories" class="form-label">Category</label>
+            <select name="listing[categories]" id="categories" class="form-control" required>
+              <option value="">Select a category</option>
+              <option value="Farms" <%=listing.categories==='Farms' ? 'selected' : '' %>>Farms</option>
+              <option value="Arctic" <%=listing.categories==='Arctic' ? 'selected' : '' %>>Arctic</option>
+              <option value="Iconic Cities" <%=listing.categories==='Iconic Cities' ? 'selected' : '' %>>Iconic Cities
+              </option>
+              <option value="Trending" <%=listing.categories==='Trending' ? 'selected' : '' %>>Trending</option>
+              <option value="Rooms" <%=listing.categories==='Rooms' ? 'selected' : '' %>>Rooms</option>
+              <option value="Mountain" <%=listing.categories==='Mountain' ? 'selected' : '' %>>Mountain</option>
+              <option value="Castle" <%=listing.categories==='Castle' ? 'selected' : '' %>>Castle</option>
+              <option value="Amazing Pool" <%=listing.categories==='Amazing Pool' ? 'selected' : '' %>>Amazing Pool
+              </option>
+              <option value="Camping" <%=listing.categories==='Camping' ? 'selected' : '' %>>Camping</option>
+              <!-- Add more categories as needed -->
+            </select>
+            <div class="invalid-feedback">Category is required</div>
+          </div>
+
+          <br />
+          <button class="btn btn-dark">Update</button>
+      </form>
+      <br />
+
+    </div>
+  </div>
